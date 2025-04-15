@@ -1,0 +1,1 @@
+The infrared image distinctly highlights thermal signatures, where warmer objects such as the car engine and the human figure appear brighter. The foliage and architectural structures emit less heat and thus are depicted in darker shades. This thermal differentiation aids in identifying and analyzing heat sources and distribution in the scene.
