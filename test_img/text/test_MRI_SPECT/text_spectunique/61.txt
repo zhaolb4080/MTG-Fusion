@@ -1,0 +1,1 @@
+The SPECT image displays a color-coded representation of brain activity, with varying hues indicating different levels of function or blood flow. The image is less detailed in terms of anatomical structures but highlights functional aspects such as metabolic activity. The colors range from dark purple, indicating lower activity, to bright orange, signifying higher activity.
