@@ -1,0 +1,1 @@
+This MRI image displays an axial (horizontal) slice of the human brain. The image shows the cerebral cortex, ventricles, and other brain structures with good contrast, indicating it might be a T1-weighted scan. There are no obvious abnormalities such as tumors or lesions visible in this particular slice.
