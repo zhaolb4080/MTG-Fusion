@@ -1,6 +1,6 @@
 ### Quick Test with Our Prepared Data
 
-We provide the test manifests, text descriptions, and precomputed text caches for all supported datasets. After downloading the corresponding dataset and pretrained checkpoint, inference can be performed directly without regenerating text descriptions or embeddings.
+We provide the test manifests, text descriptions, and precomputed text caches for all supported datasets. After downloading the corresponding dataset, inference can be performed directly without regenerating text descriptions or embeddings.
 
 Run the following command from the repository root:
 
