@@ -20,14 +20,13 @@
   <a href="#citation"><strong>Citation</strong></a>
 </p>
 
-<p align="center">
-  <img src="assets/teaser.png" alt="Representative MTG-Fusion results" width="100%">
-</p>
-<p align="center"><em>Representative results of MTG-Fusion on multi-modality image fusion tasks.</em></p>
-
 ## Overview
 
 MTG-Fusion is a multi-text guided framework for visible-infrared and medical image fusion. It uses a text-guided cross-modality shared feature extractor and a text-guided single-modality specific feature fusion module to integrate complementary visual information under multi-text guidance.
+
+<p align="center">
+  <img src="assets/teaser.png" alt="MTG-Fusion teaser" width="100%">
+</p>
 
 ## Framework
 
