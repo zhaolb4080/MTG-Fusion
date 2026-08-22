@@ -72,3 +72,67 @@ Use the corresponding files for the other datasets:
 | SPECT-MRI | `configs/mif.yaml`    | `checkpoints/spect_mri.pt` | `data/spect_mri_test_text.jsonl` | `data/spect_mri_test_text.pt` |
 
 Use `--restore-color` for MSRS, RoadScene, M3FD, PET-MRI, and SPECT-MRI. It can be omitted for grayscale CT-MRI fusion.
+
+### Test on Your Own Data
+
+To test your own data, organize the image pairs, build a manifest, generate descriptions, cache the text embeddings, and run inference. We generated our prepared descriptions using the ChatGPT-4.0 API. For your convenience, a local Qwen model is recommended without API credentials.
+
+#### 1. Organize the Image Pairs
+
+```text
+datasets/custom/
+├── source_a/
+│   ├── 00001.png
+│   └── ...
+└── source_b/
+    ├── 00001.png
+    └── ...
+```
+
+#### 2. Build the Manifest
+
+```bash
+python tools/build_manifest.py \
+  --ir-dir datasets/custom/source_a \
+  --vis-dir datasets/custom/source_b \
+  --color-source b \
+  --output data/custom_test.jsonl
+```
+
+Here, `--ir-dir` and `--vis-dir` represent source A and source B. Use color source `b` for infrared–visible fusion and `a` for PET–MRI or SPECT–MRI. Add `--recursive` for nested directories.
+
+#### 3. Generate and Cache Text
+
+```bash
+python tools/generate_descriptions.py \
+  --input data/custom_test.jsonl \
+  --output data/custom_test_text.jsonl \
+  --backend qwen-local \
+  --task vis-ir \
+  --qwen-model Qwen/Qwen2.5-VL-3B-Instruct \
+  --device cuda \
+  --batch-size 1 \
+  --resume
+```
+
+```bash
+python tools/cache_text_embeddings.py \
+  --manifest data/custom_test_text.jsonl \
+  --output data/custom_test_text.pt \
+  --device cuda
+```
+
+#### 4. Run Inference
+
+Example for infrared–visible fusion:
+
+```bash
+python infer.py \
+  --config configs/vis_ir.yaml \
+  --checkpoint checkpoints/msrs.pt \
+  --manifest data/custom_test_text.jsonl \
+  --text-cache data/custom_test_text.pt \
+  --output results/custom \
+  --restore-color
+```
+
