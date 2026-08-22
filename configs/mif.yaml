@@ -1,0 +1,51 @@
+seed: 42
+device: cuda
+amp: true
+validation_amp: false
+inference_amp: false
+num_workers: 4
+batch_size: 4
+crop_size: 256
+
+model:
+  base_channels: 32
+  feature_channels: 64
+  retention_blocks: 4
+  retention_heads: 4
+  retention_head_dim: 16
+  text_dim: 512
+  max_text_side: 64
+  match_size: 16
+  text_gate_init: 0.10
+  text_residual_scale: 0.10
+
+stage1:
+  epochs: 100
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  lr_step: 20
+  lr_gamma: 0.5
+
+stage2:
+  epochs: 50
+  learning_rate: 0.00005
+  weight_decay: 0.0
+  lr_step: 20
+  lr_gamma: 0.5
+  text_warmup_epochs: 5
+  consistency_start: 1.0
+  consistency_end: 0.5
+  finetune_decoder: false
+  validation_min_ratio: 0.9999
+  validation_scd_tolerance: 0.0002
+  validation_score_margin: 0.00001
+  validation_text_strengths: [0.25, 0.50, 0.75, 1.00]
+
+loss:
+  mse_weight: 1.0
+  ssim_weight: 0.5
+  l1_weight: 0.6
+  gradient_weight: 1.0
+  blip_weight: 0.01
+  blip_model: Salesforce/blip-itm-base-coco
+  blip_revision: 98cf803d8586e8e8b3ec527885ac50c422d514ae
