@@ -79,14 +79,6 @@ Stage 2 must be initialized from the converged Stage 1 checkpoint. Replace the d
 
 ## Inference
 
-<p align="center">
-  <a href="#quick-test-with-our-prepared-data"><strong>Prepared Data</strong></a>
-  &nbsp;&nbsp;•&nbsp;&nbsp;
-  <a href="#test-on-your-own-data"><strong>Custom Data</strong></a>
-</p>
-
----
-
 ### Quick Test with Our Prepared Data
 
 > The pretrained checkpoints are under `checkpoints/`, and the prepared test manifests, text descriptions, and text caches are under `data/`. The source images are not included because of their file sizes; therefore, `datasets/` is empty by default.
