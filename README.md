@@ -69,8 +69,8 @@ python train.py \
   --stage 2 \
   --manifest data/msrs_stage2_383_text.jsonl \
   --text-cache data/msrs_stage2_383_text.pt \
-  --val-manifest data/msrs_test_text.jsonl \
-  --val-text-cache data/msrs_test_text.pt \
+  --val-manifest data/msrs_val_text.jsonl \
+  --val-text-cache data/msrs_val_text.pt \
   --resume runs/msrs_stage1/best.pt \
   --output runs/msrs_stage2
 ```
